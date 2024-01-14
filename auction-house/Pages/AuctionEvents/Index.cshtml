@@ -1,5 +1,5 @@
 @page
-@model auction_house.Pages.IndexModel
+@model auction_house.Pages.AuctionEvents.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -22,9 +22,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.AuctionEvent[0].EndTime)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuctionEvent[0].User)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,12 +38,9 @@
                 @Html.DisplayFor(modelItem => item.EndTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.AuctionEventId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.AuctionEventId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.AuctionEventId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }

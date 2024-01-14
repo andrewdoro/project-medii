@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AuctionHouse.Models;
 
-namespace auction_house.Pages.Items
+namespace auction_house.Pages.Origins
 {
     public class EditModel : PageModel
     {
@@ -20,25 +20,21 @@ namespace auction_house.Pages.Items
         }
 
         [BindProperty]
-        public Item Item { get; set; } = default!;
+        public Origin Origin { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Item == null)
+            if (id == null || _context.Origin == null)
             {
                 return NotFound();
             }
 
-            var item =  await _context.Item.FirstOrDefaultAsync(m => m.ID == id);
-            if (item == null)
+            var origin =  await _context.Origin.FirstOrDefaultAsync(m => m.ID == id);
+            if (origin == null)
             {
                 return NotFound();
             }
-            Item = item;
-           ViewData["AuctionEventId"] = new SelectList(_context.AuctionEvent, "ID", "Title");
-           ViewData["CategoryId"] = new SelectList(_context.Category, "ID", "Name");
-           ViewData["OriginId"] = new SelectList(_context.Origin, "ID", "HistoricalPlace");
-           ViewData["SellerId"] = new SelectList(_context.Seller, "ID", "Email");
+            Origin = origin;
             return Page();
         }
 
@@ -51,7 +47,7 @@ namespace auction_house.Pages.Items
                 return Page();
             }
 
-            _context.Attach(Item).State = EntityState.Modified;
+            _context.Attach(Origin).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +55,7 @@ namespace auction_house.Pages.Items
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ItemExists(Item.ID))
+                if (!OriginExists(Origin.ID))
                 {
                     return NotFound();
                 }
@@ -72,9 +68,9 @@ namespace auction_house.Pages.Items
             return RedirectToPage("./Index");
         }
 
-        private bool ItemExists(int id)
+        private bool OriginExists(int id)
         {
-          return (_context.Item?.Any(e => e.ID == id)).GetValueOrDefault();
+          return (_context.Origin?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

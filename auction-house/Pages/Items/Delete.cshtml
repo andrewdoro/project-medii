@@ -36,17 +36,34 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Item.AuctionEvent.Title)
         </dd>
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Item.StartDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Item.StartDate)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Seller)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Seller.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Category.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Origin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Origin.HistoricalPlace)
+        </dd>
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="Item.ItemId" />
+        <input type="hidden" asp-for="Item.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

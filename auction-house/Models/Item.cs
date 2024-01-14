@@ -6,9 +6,7 @@ namespace AuctionHouse.Models
 
     public class Item
     {
-        public int ItemId { get; set; }
-
-
+        public int ID { get; set; }
 
         [Required, MaxLength(200)]
         public string Name { get; set; }
@@ -27,6 +25,20 @@ namespace AuctionHouse.Models
 
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
+
+        // Foreign key for User
+        public int SellerId { get; set; }
+
+        // Navigation property for User
+        public Seller Seller { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
+
+        public Origin Origin { get; set; }
+
+        public int OriginId { get; set; }
     }
 }
 

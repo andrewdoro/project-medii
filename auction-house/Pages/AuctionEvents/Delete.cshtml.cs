@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AuctionHouse.Models;
 
-namespace auction_house.Pages.Items
+namespace auction_house.Pages.AuctionEvents
 {
     public class DeleteModel : PageModel
     {
@@ -19,40 +19,40 @@ namespace auction_house.Pages.Items
         }
 
         [BindProperty]
-      public Item Item { get; set; } = default!;
+      public AuctionEvent AuctionEvent { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Item == null)
+            if (id == null || _context.AuctionEvent == null)
             {
                 return NotFound();
             }
 
-            var item = await _context.Item.FirstOrDefaultAsync(m => m.ID == id);
+            var auctionevent = await _context.AuctionEvent.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (item == null)
+            if (auctionevent == null)
             {
                 return NotFound();
             }
             else 
             {
-                Item = item;
+                AuctionEvent = auctionevent;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Item == null)
+            if (id == null || _context.AuctionEvent == null)
             {
                 return NotFound();
             }
-            var item = await _context.Item.FindAsync(id);
+            var auctionevent = await _context.AuctionEvent.FindAsync(id);
 
-            if (item != null)
+            if (auctionevent != null)
             {
-                Item = item;
-                _context.Item.Remove(Item);
+                AuctionEvent = auctionevent;
+                _context.AuctionEvent.Remove(AuctionEvent);
                 await _context.SaveChangesAsync();
             }
 

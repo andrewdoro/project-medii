@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AuctionHouse.Models;
 
-namespace auction_house.Pages.Items
+namespace auction_house.Pages.Sellers
 {
     public class CreateModel : PageModel
     {
@@ -20,26 +20,22 @@ namespace auction_house.Pages.Items
 
         public IActionResult OnGet()
         {
-        ViewData["AuctionEventId"] = new SelectList(_context.AuctionEvent, "ID", "Title");
-        ViewData["CategoryId"] = new SelectList(_context.Category, "ID", "Name");
-        ViewData["OriginId"] = new SelectList(_context.Origin, "ID", "HistoricalPlace");
-        ViewData["SellerId"] = new SelectList(_context.Seller, "ID", "Email");
             return Page();
         }
 
         [BindProperty]
-        public Item Item { get; set; } = default!;
+        public Seller Seller { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Item == null || Item == null)
+          if (!ModelState.IsValid || _context.Seller == null || Seller == null)
             {
                 return Page();
             }
 
-            _context.Item.Add(Item);
+            _context.Seller.Add(Seller);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

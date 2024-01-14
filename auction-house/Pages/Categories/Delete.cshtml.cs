@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AuctionHouse.Models;
 
-namespace auction_house.Pages.Items
+namespace auction_house.Pages.Categories
 {
     public class DeleteModel : PageModel
     {
@@ -19,40 +19,40 @@ namespace auction_house.Pages.Items
         }
 
         [BindProperty]
-      public Item Item { get; set; } = default!;
+      public Category Category { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Item == null)
+            if (id == null || _context.Category == null)
             {
                 return NotFound();
             }
 
-            var item = await _context.Item.FirstOrDefaultAsync(m => m.ID == id);
+            var category = await _context.Category.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (item == null)
+            if (category == null)
             {
                 return NotFound();
             }
             else 
             {
-                Item = item;
+                Category = category;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Item == null)
+            if (id == null || _context.Category == null)
             {
                 return NotFound();
             }
-            var item = await _context.Item.FindAsync(id);
+            var category = await _context.Category.FindAsync(id);
 
-            if (item != null)
+            if (category != null)
             {
-                Item = item;
-                _context.Item.Remove(Item);
+                Category = category;
+                _context.Category.Remove(Category);
                 await _context.SaveChangesAsync();
             }
 

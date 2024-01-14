@@ -1,0 +1,45 @@
+@page
+@model auction_house.Pages.AuctionEvents.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AuctionEvent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AuctionEvent.ID" />
+            <div class="form-group">
+                <label asp-for="AuctionEvent.Title" class="control-label"></label>
+                <input asp-for="AuctionEvent.Title" class="form-control" />
+                <span asp-validation-for="AuctionEvent.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuctionEvent.StartTime" class="control-label"></label>
+                <input asp-for="AuctionEvent.StartTime" class="form-control" />
+                <span asp-validation-for="AuctionEvent.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuctionEvent.EndTime" class="control-label"></label>
+                <input asp-for="AuctionEvent.EndTime" class="form-control" />
+                <span asp-validation-for="AuctionEvent.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

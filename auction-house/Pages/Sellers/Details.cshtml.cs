@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AuctionHouse.Models;
 
-namespace auction_house.Pages.Items
+namespace auction_house.Pages.Sellers
 {
     public class DetailsModel : PageModel
     {
@@ -18,23 +18,23 @@ namespace auction_house.Pages.Items
             _context = context;
         }
 
-      public Item Item { get; set; } = default!; 
+      public Seller Seller { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Item == null)
+            if (id == null || _context.Seller == null)
             {
                 return NotFound();
             }
 
-            var item = await _context.Item.FirstOrDefaultAsync(m => m.ID == id);
-            if (item == null)
+            var seller = await _context.Seller.FirstOrDefaultAsync(m => m.ID == id);
+            if (seller == null)
             {
                 return NotFound();
             }
             else 
             {
-                Item = item;
+                Seller = seller;
             }
             return Page();
         }

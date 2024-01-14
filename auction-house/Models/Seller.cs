@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
+
 namespace AuctionHouse.Models
 {
 
-    public class User
+    public class Seller
     {
-        public int UserId { get; set; }
+        public int ID { get; set; }
 
         [Required, MaxLength(100)]
         public string Username { get; set; }
@@ -16,10 +17,8 @@ namespace AuctionHouse.Models
         public string Email { get; set; }
 
         // Navigation property for bids
-        public List<Bid> Bids { get; set; }
+        public List<Item> Items { get; set; }
 
-        // Navigation property for auction events
-        public List<AuctionEvent> AuctionEvents { get; set; }
     }
 }
 

@@ -11,12 +11,10 @@ using AuctionHouse.Models;
             : base(options)
         {
         }
-
-
-
+        public DbSet<AuctionHouse.Models.Seller> Seller { get; set; } = default!;
+        public DbSet<AuctionHouse.Models.Origin> Origin { get; set; } = default!;
+        public DbSet<AuctionHouse.Models.Category> Category { get; set; } = default!;
+        public DbSet<AuctionHouse.Models.AuctionEvent> AuctionEvent { get; set; } = default!;
         public DbSet<AuctionHouse.Models.Item> Item { get; set; } = default!;
 
-
-
-        public DbSet<AuctionHouse.Models.AuctionEvent> AuctionEvent { get; set; } = default!;
     }
