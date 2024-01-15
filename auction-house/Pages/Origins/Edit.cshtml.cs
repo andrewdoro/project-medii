@@ -35,6 +35,7 @@ namespace auction_house.Pages.Origins
                 return NotFound();
             }
             Origin = origin;
+           ViewData["CategoryID"] = new SelectList(_context.Category, "ID", "Name");
             return Page();
         }
 

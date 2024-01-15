@@ -20,6 +20,7 @@ namespace auction_house.Pages.Origins
 
         public IActionResult OnGet()
         {
+        ViewData["CategoryID"] = new SelectList(_context.Category, "ID", "Name");
             return Page();
         }
 

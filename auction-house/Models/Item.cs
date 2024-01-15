@@ -18,7 +18,7 @@ namespace AuctionHouse.Models
         public decimal StartingPrice { get; set; }
 
         // Foreign key for AuctionEvent
-        public int AuctionEventId { get; set; }
+        public int AuctionEventID { get; set; }
 
         // Navigation property for AuctionEvent
         public AuctionEvent AuctionEvent { get; set; }
@@ -27,18 +27,18 @@ namespace AuctionHouse.Models
         public DateTime StartDate { get; set; }
 
         // Foreign key for User
-        public int SellerId { get; set; }
+        public int SellerID { get; set; }
 
         // Navigation property for User
         public Seller Seller { get; set; }
 
-        public int CategoryId { get; set; }
+        public int CategoryID { get; set; }
 
         public Category Category { get; set; }
 
         public Origin Origin { get; set; }
 
-        public int OriginId { get; set; }
+        public int OriginID { get; set; }
     }
 }
 

@@ -35,10 +35,10 @@ namespace auction_house.Pages.Items
                 return NotFound();
             }
             Item = item;
-           ViewData["AuctionEventId"] = new SelectList(_context.AuctionEvent, "ID", "Title");
-           ViewData["CategoryId"] = new SelectList(_context.Category, "ID", "Name");
-           ViewData["OriginId"] = new SelectList(_context.Origin, "ID", "HistoricalPlace");
-           ViewData["SellerId"] = new SelectList(_context.Seller, "ID", "Email");
+           ViewData["AuctionEventID"] = new SelectList(_context.AuctionEvent, "ID", "Title");
+           ViewData["CategoryID"] = new SelectList(_context.Category, "ID", "Name");
+           ViewData["OriginID"] = new SelectList(_context.Origin, "ID", "HistoricalPlace");
+           ViewData["SellerID"] = new SelectList(_context.Seller, "ID", "Email");
             return Page();
         }
 

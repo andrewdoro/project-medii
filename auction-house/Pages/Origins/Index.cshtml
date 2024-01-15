@@ -19,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Origin[0].CurrentCountry)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origin[0].Category)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -30,6 +33,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CurrentCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

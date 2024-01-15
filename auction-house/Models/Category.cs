@@ -12,6 +12,12 @@ namespace AuctionHouse.Models
 
         public string Description { get; set; }
 
+        public string Period { get; set; }
+
+        public ICollection<Item>? Items { get; set; }
+        public ICollection<Origin>? Origins { get; set; }
+
+
     }
 }
 

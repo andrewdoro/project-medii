@@ -19,7 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Category[0].Description)
             </th>
-            <th></th>
+              <th>
+                @Html.DisplayNameFor(model => model.Category[0].Period)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Period)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
