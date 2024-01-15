@@ -1,4 +1,4 @@
-@page "/"
+@page
 @model auction_house.Pages.AuctionEvents.IndexModel
 
 @{
@@ -22,7 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.AuctionEvent[0].EndTime)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuctionEvent[0].Description)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +38,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

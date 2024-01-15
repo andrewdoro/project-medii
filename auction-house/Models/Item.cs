@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace AuctionHouse.Models
 {
@@ -14,31 +15,35 @@ namespace AuctionHouse.Models
         [Required]
         public string Description { get; set; }
 
-        [Range(0, double.MaxValue)]
+        [Range(0, double.MaxValue),DisplayName("Starting Price")]
         public decimal StartingPrice { get; set; }
 
-        // Foreign key for AuctionEvent
+        [ DisplayName("Auction Event")]
+
         public int AuctionEventID { get; set; }
 
         // Navigation property for AuctionEvent
-        public AuctionEvent AuctionEvent { get; set; }
+        public AuctionEvent? AuctionEvent { get; set; }
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date),DisplayName("Start Date")]
         public DateTime StartDate { get; set; }
 
-        // Foreign key for User
+        [DisplayName("Seller")]
         public int SellerID { get; set; }
 
         // Navigation property for User
-        public Seller Seller { get; set; }
+        public Seller? Seller { get; set; }
 
+        [DisplayName("Category")]
         public int CategoryID { get; set; }
 
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
-        public Origin Origin { get; set; }
-
+        [DisplayName("Origin")]
         public int OriginID { get; set; }
+
+        public Origin? Origin { get; set; }
+
     }
 }
 

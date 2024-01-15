@@ -1,0 +1,22 @@
+﻿@page
+@model auction_house.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+<h1>Active Auctions</h1>
+
+    <div class="row gap-2">
+        @foreach (var item in Model.AuctionEvent)
+        {
+            <div class="card col-sm-4 ">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)</h6>
+                    <p class="card-text"> @Html.DisplayFor(modelItem => item.Description)</p>
+                    <a asp-page="./AuctionEvents/Details" asp-route-id="@item.ID">See all items</a> 
+                </div>
+            </div>
+        }
+    </div>

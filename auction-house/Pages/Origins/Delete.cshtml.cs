@@ -28,7 +28,7 @@ namespace auction_house.Pages.Origins
                 return NotFound();
             }
 
-            var origin = await _context.Origin.FirstOrDefaultAsync(m => m.ID == id);
+            var origin = await _context.Origin.Include(o=>o.Category).FirstOrDefaultAsync(m => m.ID == id);
 
             if (origin == null)
             {

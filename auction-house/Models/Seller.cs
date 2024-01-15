@@ -17,7 +17,7 @@ namespace AuctionHouse.Models
         public string Email { get; set; }
 
         // Navigation property for bids
-        public List<Item> Items { get; set; }
+        public List<Item>? Items { get; set; }
 
     }
 }
