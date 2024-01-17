@@ -14,6 +14,7 @@ namespace AuctionHouse.Models
         [DisplayName("Current Country")]
         public string CurrentCountry { get; set; }
 
+        [DisplayName("Category")]
         public int CategoryID { get; set; }
 
         public Category? Category { get; set; }

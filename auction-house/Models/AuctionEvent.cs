@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace AuctionHouse.Models
 {
@@ -11,8 +12,10 @@ namespace AuctionHouse.Models
 
         public string Description { get; set; }
 
+        [DisplayName("Start Time")]
         public DateTime StartTime { get; set; }
 
+        [DisplayName("End Time")]
         public DateTime EndTime { get; set; }
 
         // Navigation property for items
