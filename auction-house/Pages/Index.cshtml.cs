@@ -22,9 +22,14 @@ namespace auction_house.Pages
 
         public async Task OnGetAsync()
         {
+            var currentDate = DateTime.Now;
+
             if (_context.AuctionEvent != null)
             {
-                AuctionEvent = await _context.AuctionEvent.Include(a=>a.Items).ToListAsync();
+                AuctionEvent = await _context.AuctionEvent
+                    .Where(a => a.StartTime <= currentDate && a.EndTime >= currentDate)
+                    .Include(a => a.Items)
+                    .ToListAsync();
             }
         }
     }

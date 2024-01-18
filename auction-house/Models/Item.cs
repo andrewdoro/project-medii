@@ -15,7 +15,7 @@ namespace AuctionHouse.Models
         [Required]
         public string Description { get; set; }
 
-        [Range(0, double.MaxValue),DisplayName("Starting Price")]
+        [Range(0, double.MaxValue),DisplayName("Starting Price"),DisplayFormat(DataFormatString ="{0:C}")]
         public decimal StartingPrice { get; set; }
 
         [ DisplayName("Auction Event")]

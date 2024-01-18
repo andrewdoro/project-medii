@@ -12,10 +12,10 @@ namespace AuctionHouse.Models
 
         public string Description { get; set; }
 
-        [DisplayName("Start Time")]
+        [DisplayName("Start Date"), DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime StartTime { get; set; }
 
-        [DisplayName("End Time")]
+        [DisplayName("End Date"), DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime EndTime { get; set; }
 
         // Navigation property for items

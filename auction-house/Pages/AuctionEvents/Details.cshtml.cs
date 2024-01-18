@@ -27,7 +27,7 @@ namespace auction_house.Pages.AuctionEvents
                 return NotFound();
             }
 
-            var auctionevent = await _context.AuctionEvent.FirstOrDefaultAsync(m => m.ID == id);
+            var auctionevent = await _context.AuctionEvent.Include(a=>a.Items).FirstOrDefaultAsync(m => m.ID == id);
             if (auctionevent == null)
             {
                 return NotFound();

@@ -32,6 +32,28 @@
     </dl>
 </div>
 <div>
+    <h4>Items in this Auction</h4>
+    <hr />
+    @if (Model.AuctionEvent.Items != null && Model.AuctionEvent.Items.Any())
+    {
+        <ul>
+            @foreach (var item in Model.AuctionEvent.Items)
+            {
+                <li>
+                    <strong>@Html.DisplayFor(_ => item.Name)</strong> -
+                    @Html.DisplayFor(_ => item.Description)
+                    Price: @Html.DisplayFor(_ => item.StartingPrice)
+
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No items available for this auction.</p>
+    }
+</div>
+<div>
     <a asp-page="./Edit" asp-route-id="@Model.AuctionEvent?.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
